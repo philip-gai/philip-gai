@@ -1,4 +1,13 @@
-### Hi there 👋
+### Hi there! <img src="https://user-images.githubusercontent.com/17363579/130145130-e5496302-0a6a-464f-ab10-cad7018b5791.gif" width="48">
+#### ABOUT ME
+![Image](https://user-images.githubusercontent.com/17363579/130142074-1e604723-75ce-4d56-864e-2942bccb9440.png) I'm a Software Engineer on GitHub Actions (Platform)
+
+
+- <img src="https://user-images.githubusercontent.com/17363579/130144811-99f95bbd-7412-4477-9f61-5c06cb2372ac.png" width="36"> I'm from Seattle (Go Hawks)
+- <img src="https://user-images.githubusercontent.com/17363579/130145464-f670f063-0b8d-490b-9beb-8dfe2c68bd2d.gif" width="36"> I have 2 kids (boys)
+- <img src="https://user-images.githubusercontent.com/17363579/130145581-baf6e8aa-8f77-4b72-873b-50c3b7a5c9f7.gif" width="36"> I live in Texas
+
+Let's code together
 
 <!--
 **philip-gai/philip-gai** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
