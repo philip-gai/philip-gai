@@ -12,8 +12,11 @@
 - I'm married and have 2 kids (boys)
 - I'm from Seattle (Go Hawks!)
 - I live in Texas and I went to Baylor University (Sic 'em)
-
-[Connect with me on LinkedIn!](https://www.linkedin.com/in/philipgai/)
+ 
+  
+ ### Let's connect
+- Follow me here on GitHub
+- [Connect](https://www.linkedin.com/in/philipgai/) with me on LinkedIn
 
 <!--
 **philip-gai/philip-gai** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
