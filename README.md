@@ -8,11 +8,13 @@
 <img src="https://user-images.githubusercontent.com/17363579/130145581-baf6e8aa-8f77-4b72-873b-50c3b7a5c9f7.gif" width="48">
 <img src="https://user-images.githubusercontent.com/17363579/130278918-142645cf-754b-4dc2-87ea-736e1fc8fecf.gif" width="48">
 
-- I'm a Software Engineer on GitHub Actions (Platform)
-- I'm married and have 2 kids (boys)
-- I'm from Seattle (Go Hawks!)
-- I live in Texas and I went to Baylor University (Sic 'em)
+- 💻 I'm a Software Engineer on GitHub Actions (Platform)
+- 🦸🏼‍♀️👶🏼👶🏼 I'm married to a nice lady and we have 2 boys
+- 🦅 I'm from Seattle (Go Hawks!)
+- 🐻 I live in Texas and I went to Baylor University (Sic 'em)
  
+ ### What I'm working on
+ View my public project board here! ➡️ https://github.com/users/philip-gai/projects/4
   
  ### Let's connect
 - Follow me here on GitHub
