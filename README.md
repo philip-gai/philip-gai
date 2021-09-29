@@ -8,18 +8,18 @@
 
 ### A little bit about me
 
-- 💻 I'm a Software Engineer on GitHub Actions (Platform)
-- 🦸🏼‍♀️👶🏼👶🏼 I'm married to a nice lady and we have 2 boys
-- 🦅 I'm from Seattle (Go Hawks!)
-- 🐻 I live in Texas and I went to Baylor University (Sic 'em)
+- I'm a Software Engineer on GitHub Actions 💻
+- I'm married to a nice lady and we have 2 boys 🦸🏼‍♀ 👶🏼 👶🏼
+- I'm from Seattle (Go Hawks!) 🦅
+- I live in Texas and I went to Baylor University (Sic 'em) 🐻
  
  ### What I'm working on
- View my public project board here ➡️ https://github.com/users/philip-gai/projects/4
+- [View my public project board](https://github.com/users/philip-gai/projects/4)
   
  ### Let's connect
 - Follow me here on GitHub
 - [Connect](https://www.linkedin.com/in/philipgai/) with me on LinkedIn
-- [:heart: Sponsor me](https://github.com/sponsors/philip-gai)
+- [Sponsor me](https://github.com/sponsors/philip-gai) :heart:
 
 <!--
 **philip-gai/philip-gai** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
