@@ -4,7 +4,6 @@
 ![GitHub User's stars](https://img.shields.io/github/stars/philip-gai?affiliations=OWNER%2CCOLLABORATOR&style=social)
 ![GitHub followers](https://img.shields.io/github/followers/philip-gai?style=social)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-in-blue)](https://www.linkedin.com/in/philipgai/)
-[![Twitter URL](https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fphilipgai_dev)](https://twitter.com/philipgai_dev)
 
 ### Let's connect!
 - Explore and ⭐ my projects
