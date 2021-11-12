@@ -5,6 +5,9 @@
 ![GitHub followers](https://img.shields.io/github/followers/philip-gai?style=social)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-in-blue)](https://www.linkedin.com/in/philipgai/)
 
+![Philip's GitHub stats](https://github-readme-stats.vercel.app/api?username=philip-gai&count_private=true&show_icons=true)
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=philip-gai&layout=compact" height="195">
+
 ### Let's connect!
 - Explore and ⭐ my projects
 - Follow me here on GitHub
