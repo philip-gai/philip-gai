@@ -4,6 +4,7 @@ I like to work on things that help make developers happy 😊
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=philip-gai)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-in-blue)](https://www.linkedin.com/in/philipgai/)
+[![Reddit](https://img.shields.io/badge/Reddit-u%2Fphilipgai-red)](https://www.reddit.com/user/philipgai)
 
 ![Philip's GitHub stats](https://github-readme-stats.vercel.app/api?username=philip-gai&count_private=true&show_icons=true)
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=philip-gai&layout=compact" height="195">
