@@ -1,4 +1,4 @@
-## Hi there! <img src="https://user-images.githubusercontent.com/17363579/130145130-e5496302-0a6a-464f-ab10-cad7018b5791.gif" width="48">
+## Hi there! I'm @philip-gai <img src="https://user-images.githubusercontent.com/17363579/130145130-e5496302-0a6a-464f-ab10-cad7018b5791.gif" width="36">
 
 ![GitHub User's stars](https://img.shields.io/github/stars/philip-gai?affiliations=OWNER%2CCOLLABORATOR&style=social)
 ![GitHub followers](https://img.shields.io/github/followers/philip-gai?style=social)
