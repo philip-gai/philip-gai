@@ -1,8 +1,6 @@
 ## Hi there! I'm @philip-gai <img src="https://user-images.githubusercontent.com/17363579/130145130-e5496302-0a6a-464f-ab10-cad7018b5791.gif" width="36">
 
-[![GitHub](https://img.shields.io/badge/GitHub-%40philip--gai-brightgreen)](https://github.com/philip-gai)
-![GitHub User's stars](https://img.shields.io/github/stars/philip-gai?affiliations=OWNER%2CCOLLABORATOR&style=social)
-![GitHub followers](https://img.shields.io/github/followers/philip-gai?style=social)
+![Visitor Count](https://komarev.com/ghpvc/?username=philip-gai)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-in-blue)](https://www.linkedin.com/in/philipgai/)
 
 ![Philip's GitHub stats](https://github-readme-stats.vercel.app/api?username=philip-gai&count_private=true&show_icons=true)
