@@ -1,5 +1,7 @@
 ## Hi there! I'm @philip-gai <img src="https://user-images.githubusercontent.com/17363579/130145130-e5496302-0a6a-464f-ab10-cad7018b5791.gif" width="36">
 
+I like to work on things that help make developers happy 😊
+
 ![Visitor Count](https://komarev.com/ghpvc/?username=philip-gai)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-in-blue)](https://www.linkedin.com/in/philipgai/)
 
@@ -12,11 +14,7 @@
 - [Sponsor me](https://github.com/sponsors/philip-gai) :heart:
 
 ### What I'm working on
-- [View my public project board](https://github.com/users/philip-gai/projects/4)
-
-### A little bit about me
-
-- I'm a Software Engineer at GitHub 💻
-- I'm married and have 2 boys 🦸🏼‍♀ 👶🏼 👶🏼
-- I'm from Seattle (Go Hawks!) 🦅
+- [Announcement Drafter](https://github.com/philip-gai/announcement-drafter) - A 🤖 for drafting new GitHub announcements using pull requests
+- [Azure DevOps ChatOps](https://github.com/philip-gai/github-ado-chatops) - Create a branch in an Azure Repo directly from a GitHub Issue
+- ... and a lot of other things. View my [public project board](https://github.com/users/philip-gai/projects/4) for live updates!
  
