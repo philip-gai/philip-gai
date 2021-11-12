@@ -1,37 +1,19 @@
 ## Hi there! <img src="https://user-images.githubusercontent.com/17363579/130145130-e5496302-0a6a-464f-ab10-cad7018b5791.gif" width="48">
 
-<img src="https://user-images.githubusercontent.com/17363579/130280181-108d3971-96ce-4138-83fe-a9663c90be46.gif" width="48"> <img src="https://user-images.githubusercontent.com/17363579/130142074-1e604723-75ce-4d56-864e-2942bccb9440.png" width="48">
-<img src="https://user-images.githubusercontent.com/17363579/130145464-f670f063-0b8d-490b-9beb-8dfe2c68bd2d.gif" width="48">
-<img src="https://user-images.githubusercontent.com/17363579/130144811-99f95bbd-7412-4477-9f61-5c06cb2372ac.png" width="48">
-<img src="https://user-images.githubusercontent.com/17363579/130145581-baf6e8aa-8f77-4b72-873b-50c3b7a5c9f7.gif" width="48">
-<img src="https://user-images.githubusercontent.com/17363579/130278918-142645cf-754b-4dc2-87ea-736e1fc8fecf.gif" width="48">
+![GitHub User's stars](https://img.shields.io/github/stars/philip-gai?affiliations=OWNER%2CCOLLABORATOR&style=social)
+![GitHub followers](https://img.shields.io/github/followers/philip-gai?style=social)
+
+### Let's connect
+- Explore and ⭐ my projects
+- Follow me here on GitHub
+- [Sponsor me](https://github.com/sponsors/philip-gai) :heart:
+
+### What I'm working on
+- [View my public project board](https://github.com/users/philip-gai/projects/4)
 
 ### A little bit about me
 
-- I'm a Software Engineer on GitHub Actions 💻
-- I'm married to a nice lady and we have 2 boys 🦸🏼‍♀ 👶🏼 👶🏼
+- I'm a Software Engineer at GitHub 💻
+- I'm married and have 2 boys 🦸🏼‍♀ 👶🏼 👶🏼
 - I'm from Seattle (Go Hawks!) 🦅
-- I live in Texas and I went to Baylor University (Sic 'em) 🐻
  
- ### What I'm working on
-- [View my public project board](https://github.com/users/philip-gai/projects/4)
-  
- ### Let's connect
-- Follow me here on GitHub
-- [Connect](https://www.linkedin.com/in/philipgai/) with me on LinkedIn
-- [Sponsor me](https://github.com/sponsors/philip-gai) :heart:
-
-<!--
-**philip-gai/philip-gai** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
