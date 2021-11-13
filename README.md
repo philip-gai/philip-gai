@@ -1,6 +1,6 @@
 ## Hi there! I'm @philip-gai <img src="https://user-images.githubusercontent.com/17363579/130145130-e5496302-0a6a-464f-ab10-cad7018b5791.gif" width="36">
 
-I like to work on things that help make developers happy 😊
+I like to work on things that make developers happy 😊
 
 ![Visitor Count](https://komarev.com/ghpvc/?username=philip-gai)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-in-blue)](https://www.linkedin.com/in/philipgai/)
