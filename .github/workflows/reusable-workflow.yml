@@ -6,6 +6,7 @@ on:
       version:
         required: false
         type: string
+  workflow_dispatch:
 
 jobs:
   reusable_workflow_job:
@@ -14,4 +15,6 @@ jobs:
       - name: echo version input
         shell: pwsh
         run: |
-          Write-Host "${{ inputs.version }}"
+          $version = "${{ inputs.version }}"
+          $message = If($version) { $version } Else { "Nothing" }
+          Write-Host $message
