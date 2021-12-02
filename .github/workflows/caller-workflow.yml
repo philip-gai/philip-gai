@@ -12,4 +12,4 @@ jobs:
   call-workflow:
     uses: philip-gai/philip-gai/.github/workflows/reusable-workflow.yml@main
     with:
-      version: ${{ inputs.version }}
+      version: ${{ github.event.inputs.version }}
