@@ -10,6 +10,6 @@ on:
 
 jobs:
   call-workflow:
-    uses: ./.github/workflows/reusable-workflow.yml
+    uses: ./.github/workflows/reusable-workflow.yml@main
     with:
       version: ${{ inputs.version }}
