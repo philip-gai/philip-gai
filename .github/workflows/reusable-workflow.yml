@@ -1,0 +1,17 @@
+name: reusable-workflow
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: false
+        type: string
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo version input
+        shell: pwsh
+        run: |
+          Write-Host "${{ inputs.version }}"

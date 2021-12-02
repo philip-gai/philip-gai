@@ -1,0 +1,15 @@
+name: caller-workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: false
+        default: '2021.12.02'
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      version: ${{ inputs.version }}
