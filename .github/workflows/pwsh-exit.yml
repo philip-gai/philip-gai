@@ -1,0 +1,24 @@
+name: Test PowerShell Fail Jobs
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  test-pwsh-exit-1:
+    name: Test pwsh exit 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run script
+        shell: pwsh
+        run: ./scripts/pwsh-exit-1.ps1
+  test-pwsh-echo-error:
+    name: Test pwsh echo error
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run script
+        shell: pwsh
+        run: ./scripts/pwsh-echo-error.ps1
