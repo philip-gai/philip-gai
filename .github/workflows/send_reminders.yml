@@ -1,5 +1,6 @@
 # Sends a reminder to assignees of all open issues in a repo using pwsh
 # Uses the built-in GITHUB_TOKEN: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+# Replace the GITHUB_TOKEN environment variable with your own PAT to make the issue comment as yourself
 
 name: Send Reminders
 
