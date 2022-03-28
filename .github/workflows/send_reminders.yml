@@ -4,8 +4,6 @@
 name: Send Reminders
 
 on:
-  schedule:
-    - cron: "0 10 * * 1" # At 10:00 AM on Mondays
   workflow_dispatch: {}
 
 jobs:
