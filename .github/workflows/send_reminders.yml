@@ -48,6 +48,8 @@ jobs:
               Write-Warning "Failed to send reminder to $assignee"
               continue
             }
+            # FIXME - Remove after testing
+            break;
           }
 
           Write-Host "Done"
