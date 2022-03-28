@@ -23,7 +23,7 @@ jobs:
           $repository = "${{ github.repository }}"
 
           Write-Host "Logging in..."
-          $token | gh auth login --with-token
+          gh auth login
 
           Write-Host "Getting issues..."
           $issues = $(gh issue list -R $repository --state open --json "number,assignees" -L 500) | ConvertFrom-Json
