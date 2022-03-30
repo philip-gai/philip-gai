@@ -1,4 +1,4 @@
-name: Example Workflow with Retries
+name: Retryable workflow
 
 on:
   workflow_call:
