@@ -63,8 +63,8 @@ jobs:
         shell: pwsh
         run: |
           gh --version
-          brew info gh
-          brew install gh@2.6.0
+          brew uninstall gh
+          brew install gh
           gh --version
       - name: 'Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}'
         shell: pwsh
