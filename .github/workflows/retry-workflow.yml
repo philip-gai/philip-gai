@@ -69,13 +69,10 @@ jobs:
           brew install gh
           gh --version
       - name: "Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}"
-        shell: pwsh
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          $attempt = [int]$env:attempt
-          $maxAttempts = [int]$env:maxAttempts
-
           echo "Retrying workflow..."
           gh auth login
 
@@ -84,12 +81,11 @@ jobs:
             gh workflow run retry-workflow.yml
               --raw-field attempt=$attempt
               --raw-field maxAttempts=$maxAttempts
-              --ref $env:GITHUB_REF
-              --repo $env:GITHUB_REPOSITORY
+              --ref $GITHUB_REF
+              --repo $GITHUB_REPOSITORY
           "
-          gh workflow run retry-workflow.yml `
-            --raw-field attempt=$attempt `
-            --raw-field maxAttempts=$maxAttempts `
-            --ref $env:GITHUB_REF `
-            --repo $env:GITHUB_REPOSITORY `
-            2>&1
+          gh workflow run retry-workflow.yml \
+            --raw-field attempt=$attempt \
+            --raw-field maxAttempts=$maxAttempts \
+            --ref $GITHUB_REF \
+            --repo $GITHUB_REPOSITORY \
