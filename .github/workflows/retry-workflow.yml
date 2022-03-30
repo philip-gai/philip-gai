@@ -30,7 +30,7 @@ permissions:
 
 jobs:
   attempt_job:
-    name: 'Attempt #${{ env.attempt }'
+    name: 'Attempt #${{ env.attempt }}'
     runs-on: ubuntu-latest
     outputs:
       nextAttempt: ${{ steps.run_script.outputs.nextAttempt }}
