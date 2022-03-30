@@ -46,11 +46,11 @@ jobs:
           # PAT Token must have workflow scope
           GH_CLI_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          echo "Logging in workflow..."
+          echo "Running gh auth login..."
           $env:GH_CLI_TOKEN | gh auth login --with-token
           if(!$?) { exit 1 }
 
-          echo "Triggering rerun attempt $nextAttempt"
-          echo "gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --raw-field jobName=attempt_job --repo $env:GITHUB_REPOSITORY"
-          gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --raw-field jobName=attempt_job --repo $env:GITHUB_REPOSITORY
+          echo "Triggering rerun attempt $env:nextAttempt"
+          echo "gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --repo $env:GITHUB_REPOSITORY"
+          gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --repo $env:GITHUB_REPOSITORY
           if(!$?) { exit 1 }
