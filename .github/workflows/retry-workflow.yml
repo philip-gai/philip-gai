@@ -78,4 +78,5 @@ jobs:
           echo "Triggering attempt $attempt"
           echo "gh workflow run retry-workflow.yml --raw-field attempt=$attempt --raw-field maxAttempts=$maxAttempts --ref $GITHUB_REF --repo $GITHUB_REPOSITORY"
           gh workflow run retry-workflow.yml --raw-field attempt=$attempt --raw-field maxAttempts=$maxAttempts --ref $GITHUB_REF --repo $GITHUB_REPOSITORY
+          sleep 5s
           gh run list --workflow=retry-workflow.yml --repo $GITHUB_REPOSITORY
