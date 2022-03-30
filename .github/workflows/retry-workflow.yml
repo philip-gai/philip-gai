@@ -25,9 +25,6 @@ env:
   attempt: ${{ github.event.inputs.attempt }}
   maxAttempts: ${{ github.event.inputs.maxAttempts }}
 
-permissions:
-  actions: write
-
 jobs:
   attempt_job:
     name: "Attempt ${{ github.event.inputs.attempt }} of ${{ github.event.inputs.maxAttempts }}"
@@ -71,7 +68,8 @@ jobs:
       - name: "Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}"
         shell: bash
         env:
-          GH_CLI_TOKEN: ${{ secrets.PAT_TOKEN }}
+          # Workflows have read and write permissions in the repository for all scopes.
+          GH_CLI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Retrying workflow..."
           gh auth login --with-token <<< $GH_CLI_TOKEN
