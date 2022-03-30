@@ -30,7 +30,7 @@ permissions:
 
 jobs:
   attempt_job:
-    name: 'Attempt ${{ github.event.inputs.attempt }} of ${{ github.event.inputs.maxAttempts }}'
+    name: "Attempt ${{ github.event.inputs.attempt }} of ${{ github.event.inputs.maxAttempts }}"
     runs-on: ubuntu-latest
     outputs:
       nextAttempt: ${{ steps.run_script.outputs.nextAttempt }}
@@ -67,7 +67,7 @@ jobs:
           brew doctor
           brew install gh
           gh --version
-      - name: 'Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}'
+      - name: "Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}"
         shell: pwsh
         env:
           GH_CLI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
