@@ -49,7 +49,7 @@ jobs:
     name: Retry Job
     runs-on: ubuntu-latest
     needs: attempt_job
-    if: failure() && (${{ needs.attempt_job.outputs.nextAttempt }} < ${{ env.maxAttempts }})
+    if: failure() && (${{ needs.attempt_job.outputs.nextAttempt }} < ${{ inputs.maxAttempts }})
     env:
       attempt: ${{ needs.attempt_job.outputs.nextAttempt }}
     steps:
