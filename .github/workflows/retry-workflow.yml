@@ -76,8 +76,9 @@ jobs:
           echo "Retrying workflow..."
           gh auth login
 
-          echo "Triggering attempt $attempt"
-          
+          echo "Triggering attempt..."
+          echo "Attempt: $attempt"
+
           gh workflow run retry-workflow.yml \
             --raw-field attempt=$attempt \
             --raw-field maxAttempts=$maxAttempts \
