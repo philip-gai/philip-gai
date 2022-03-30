@@ -10,7 +10,7 @@ on:
 
 jobs:
   attempt_job:
-    name: "Attempt Job"
+    name: "Attempt ${{ github.run_attempt }} of ${{ github.event.inputs.maxAttempts }}"
     runs-on: ubuntu-latest
     steps:
       - name: Run script attempt 
