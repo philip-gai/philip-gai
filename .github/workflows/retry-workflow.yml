@@ -36,8 +36,11 @@ jobs:
         id: run_script
         shell: pwsh
         run: |
+          $attempt = $env:attempt
+          $maxAttempts = $env:maxAttempts
           $nextAttempt = $attempt + 1
           echo "::set-output name=nextAttempt::$nextAttempt"
+
           if($attempt -eq $maxAttempts - 1) {
             Write-Host "Succeeded on attempt $attempt"
           } else {
@@ -54,13 +57,16 @@ jobs:
       attempt: ${{ needs.attempt_job.outputs.nextAttempt }}
     steps:
       - name: Retry
-        shell: bash
+        shell: pwsh
         run: |
+          $attempt = $env:attempt
+          $maxAttempts = $env:maxAttempts
+
           echo "Retrying workflow..."
           echo "Triggering attempt $attempt"
-          gh workflow run retry-workflow.yml \
-            -f attempt=$attempt \
-            -f maxAttempts=$maxAttempts \
-            --ref $GITHUB_REF \
-            --repo $GITHUB_REPOSITORY
+          gh workflow run retry-workflow.yml `
+            --raw-field attempt=$attempt `
+            --raw-field maxAttempts=$maxAttempts `
+            --ref $env:GITHUB_REF `
+            --repo $env:GITHUB_REPOSITORY
           exit 1
