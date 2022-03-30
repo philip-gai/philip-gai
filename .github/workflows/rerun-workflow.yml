@@ -57,5 +57,5 @@ jobs:
           echo "Retrying workflow..."
           gh auth login --with-token <<< $GH_CLI_TOKEN
           echo "Triggering attempt $attempt"
-          echo "gh run rerun $GITHUB_RUN_ID --job 'attempt_job' --repo $GITHUB_REPOSITORY"
-          gh run rerun $GITHUB_RUN_ID --job 'attempt_job' --repo $GITHUB_REPOSITORY
+          echo "gh run rerun $GITHUB_RUN_ID --repo $GITHUB_REPOSITORY"
+          gh run rerun $GITHUB_RUN_ID --repo $GITHUB_REPOSITORY
