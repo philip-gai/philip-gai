@@ -12,6 +12,8 @@ jobs:
   attempt_job:
     name: "Attempt ${{ github.run_attempt }} of ${{ github.event.inputs.maxAttempts }}"
     runs-on: ubuntu-latest
+    outputs:
+      nextAttempt: ${{ steps.run_script.outputs.nextAttempt }}
     steps:
       - name: Run script attempt 
         id: run_script
