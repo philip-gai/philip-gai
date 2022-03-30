@@ -75,12 +75,6 @@ jobs:
         run: |
           echo "Retrying workflow..."
           gh auth login --with-token <<< $GH_CLI_TOKEN
-
-          echo "Triggering attempt..."
-          echo "Attempt: $attempt"
-
-          gh workflow run retry-workflow.yml \
-            --raw-field attempt=$attempt \
-            --raw-field maxAttempts=$maxAttempts \
-            --ref $GITHUB_REF \
-            --repo $GITHUB_REPOSITORY
+          echo "Triggering attempt $attempt"
+          echo "gh workflow run retry-workflow.yml --raw-field attempt=$attempt --raw-field maxAttempts=$maxAttempts --ref $GITHUB_REF --repo $GITHUB_REPOSITORY"
+          gh workflow run retry-workflow.yml --raw-field attempt=$attempt --raw-field maxAttempts=$maxAttempts --ref $GITHUB_REF --repo $GITHUB_REPOSITORY
