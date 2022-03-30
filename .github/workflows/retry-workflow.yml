@@ -59,6 +59,8 @@ jobs:
     env:
       attempt: ${{ needs.attempt_job.outputs.nextAttempt }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Upgrade gh cli to latest stable
         shell: pwsh
         if: ${{ false }}
