@@ -70,13 +70,16 @@ jobs:
       - name: "Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}"
         shell: pwsh
         env:
-          GH_CLI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $attempt = [int]$env:attempt
           $maxAttempts = [int]$env:maxAttempts
 
           echo "Retrying workflow..."
-          $env:GH_CLI_TOKEN | gh auth login --with-token
+          gh auth login
+
+          echo "Listing workflows..."
+          gh workflow list --repo $env:GITHUB_REPOSITORY
 
           echo "Triggering attempt $attempt"
           echo "Executing...
