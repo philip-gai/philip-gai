@@ -46,9 +46,9 @@ jobs:
         run: |
           echo "Logging in workflow..."
           $env:GH_CLI_TOKEN | gh auth login --with-token
-          if($?) { exit 1 }
+          if(!$?) { exit 1 }
 
           echo "Triggering rerun attempt $nextAttempt"
           echo "gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --raw-field jobName=attempt_job --repo $GITHUB_REPOSITORY"
           gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --raw-field jobName=attempt_job --repo $GITHUB_REPOSITORY
-          if($?) { exit 1 }
+          if(!$?) { exit 1 }

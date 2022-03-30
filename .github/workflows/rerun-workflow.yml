@@ -40,7 +40,7 @@ jobs:
 
           echo "Logging in..."
           $env:GH_CLI_TOKEN | gh auth login --with-token
-          if($?) { exit 1 }
+          if(!$?) { exit 1 }
 
           echo "Retrying run..."
 
@@ -51,4 +51,4 @@ jobs:
             echo "gh run rerun $env:runId --job $env:jobName --repo $env:GITHUB_REPOSITORY"
             gh run rerun $env:runId --job $env:jobName --repo $env:GITHUB_REPOSITORY
           }
-          if($?) { exit 1 }
+          if(!$?) { exit 1 }
