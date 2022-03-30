@@ -69,7 +69,7 @@ jobs:
         shell: bash
         env:
           # Workflows have read and write permissions in the repository for all scopes.
-          GH_CLI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_CLI_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           echo "Retrying workflow..."
           gh auth login --with-token <<< $GH_CLI_TOKEN
