@@ -7,10 +7,15 @@ on:
         required: true
         type: number
         default: 3
+      rerunFailedOnly:
+        required: true
+        type: boolean
+        default: 'false'
 
 env:
   # You can hardcode this instead of passing it in from inputs
   maxAttempts: ${{ github.event.inputs.maxAttempts }}
+  rerunFailedOnly: ${{ github.event.inputs.rerunFailedOnly }}
 
 jobs:
   attempt_job:
@@ -63,6 +68,16 @@ jobs:
           if(!$?) { exit 1 }
 
           echo "Triggering rerun attempt $env:nextAttempt"
-          echo "gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --repo $env:GITHUB_REPOSITORY"
-          gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --repo $env:GITHUB_REPOSITORY
+
+          echo "
+          gh workflow run rerun-workflow.yml
+            --raw-field runId=$env:GITHUB_RUN_ID
+            --raw-field rerunFailedOnly=$env:rerunFailedOnly
+            --repo $env:GITHUB_REPOSITORY
+          "
+
+          gh workflow run rerun-workflow.yml `
+            --raw-field runId=$env:GITHUB_RUN_ID `
+            --raw-field rerunFailedOnly=$env:rerunFailedOnly `
+            --repo $env:GITHUB_REPOSITORY
           if(!$?) { exit 1 }
