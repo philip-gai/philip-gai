@@ -37,7 +37,7 @@ jobs:
     env:
       attempt: ${{ needs.attempt_job.outputs.nextAttempt }}
     steps:
-      - name: ""Trigger Rerun ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}"
+      - name: "Trigger Rerun ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}"
         shell: pwsh
         env:
           # GITHUB_TOKEN with actions: write will NOT work
