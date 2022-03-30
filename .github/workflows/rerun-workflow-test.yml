@@ -8,6 +8,9 @@ on:
         type: number
         default: 3
 
+env:
+  maxAttempts: ${{ github.event.inputs.maxAttempts }}
+
 jobs:
   attempt_job:
     name: "Attempt ${{ github.run_attempt }} of ${{ github.event.inputs.maxAttempts }}"
