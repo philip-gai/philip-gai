@@ -88,4 +88,4 @@ jobs:
             --raw-field attempt=$attempt \
             --raw-field maxAttempts=$maxAttempts \
             --ref $GITHUB_REF \
-            --repo $GITHUB_REPOSITORY \
+            --repo $GITHUB_REPOSITORY
