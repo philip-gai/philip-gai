@@ -17,7 +17,6 @@ jobs:
     steps:
       # Upgrade gh cli so we can use the job parameter
       - name: Upgrade gh cli to latest stable
-        if: ${{ false }}
         shell: pwsh
         run: |
           gh --version
