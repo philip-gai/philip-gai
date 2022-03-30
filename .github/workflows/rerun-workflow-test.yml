@@ -30,7 +30,7 @@ jobs:
           echo "::set-output name=nextAttempt::$nextAttempt"
           echo "::set-output name=maxAttempts::$maxAttempts"
         # Fails every attempt except the last
-        name: Run test script
+      - name: Run test script
         shell: pwsh
         run: |
           $attempt = [int]$env:GITHUB_RUN_ATTEMPT
