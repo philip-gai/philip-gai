@@ -65,7 +65,7 @@ jobs:
           gh --version
           brew install gh
           gh --version
-      - name: Trigger next attempt
+      - name: 'Trigger Attempt #${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}'
         shell: pwsh
         env:
           GH_CLI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
