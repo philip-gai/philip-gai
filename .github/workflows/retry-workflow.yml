@@ -59,7 +59,13 @@ jobs:
     env:
       attempt: ${{ needs.attempt_job.outputs.nextAttempt }}
     steps:
-      - name: Retry
+      - name: Upgrade gh cli
+        shell: pwsh
+        run: |
+          gh --version
+          brew upgrade gh
+          gh --version
+      - name: Trigger next attempt
         shell: pwsh
         env:
           GH_CLI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
