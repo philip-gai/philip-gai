@@ -63,7 +63,7 @@ jobs:
         shell: pwsh
         run: |
           gh --version
-          brew upgrade gh
+          brew install gh
           gh --version
       - name: Trigger next attempt
         shell: pwsh
