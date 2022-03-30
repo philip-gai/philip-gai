@@ -9,7 +9,7 @@ on:
       maxAttempts:
         required: true
         type: number
-        default: 5
+        default: 3
   workflow_dispatch:
     inputs:
       attempt:
@@ -19,7 +19,7 @@ on:
       maxAttempts:
         required: true
         type: number
-        default: 5
+        default: 3
 
 env:
   attempt: ${{ github.event.inputs.attempt }}
@@ -44,7 +44,7 @@ jobs:
           $nextAttempt = $attempt + 1
           echo "::set-output name=nextAttempt::$nextAttempt"
 
-          if($attempt -eq $maxAttempts - 1) {
+          if($attempt -eq $maxAttempts) {
             Write-Host "Succeeded on attempt $attempt"
           } else {
             Write-Error "Failed on attempt $attempt"
