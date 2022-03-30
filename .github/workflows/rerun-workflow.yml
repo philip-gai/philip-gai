@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Upgrade gh cli to use the --job or --failed parameters
+      # This takes 1m 30s
       - name: Upgrade gh cli to latest stable
         if: ${{ false }}
         shell: pwsh
