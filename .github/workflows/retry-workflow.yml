@@ -56,15 +56,6 @@ jobs:
     env:
       attempt: ${{ needs.attempt_job.outputs.nextAttempt }}
     steps:
-      - name: Upgrade gh cli to latest stable
-        shell: pwsh
-        if: ${{ false }}
-        run: |
-          gh --version
-          brew update
-          brew doctor
-          brew install gh
-          gh --version
       - name: "Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}"
         shell: bash
         env:
