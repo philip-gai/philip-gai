@@ -49,6 +49,6 @@ jobs:
           if(!$?) { exit 1 }
 
           echo "Triggering rerun attempt $nextAttempt"
-          echo "gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --raw-field jobName=attempt_job --repo $GITHUB_REPOSITORY"
-          gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --raw-field jobName=attempt_job --repo $GITHUB_REPOSITORY
+          echo "gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --raw-field jobName=attempt_job --repo $env:GITHUB_REPOSITORY"
+          gh workflow run rerun-workflow.yml --raw-field runId=$env:GITHUB_RUN_ID --raw-field jobName=attempt_job --repo $env:GITHUB_REPOSITORY
           if(!$?) { exit 1 }
