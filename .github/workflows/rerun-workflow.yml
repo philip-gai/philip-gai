@@ -3,13 +3,6 @@ name: Rerun workflow
 on:
   workflow_call:
     inputs:
-      attempt:
-        required: true
-        type: number
-      maxAttempts:
-        required: true
-        type: number
-        default: 3
       runId:
         required: true
         type: string
@@ -18,8 +11,6 @@ on:
         type: string
 
 env:
-  attempt: ${{ github.event.inputs.attempt }}
-  maxAttempts: ${{ github.event.inputs.maxAttempts }}
   runId: ${{ github.event.inputs.runId }}
   jobName: ${{ github.event.inputs.jobName }}
 
@@ -27,37 +18,37 @@ jobs:
   retry_workflow_job:
     name: Rerun ${{ github.event.inputs.runId }}
     runs-on: ubuntu-latest
-    if: github.event.inputs.attempt <= github.event.inputs.maxAttempts )
     steps:
       # Upgrade gh cli so we can use the job parameter
       - name: Upgrade gh cli to latest stable
         shell: pwsh
-        if: ${{ false }}
         run: |
           gh --version
           brew update
           brew doctor
           brew install gh
           gh --version
-      - name: "Trigger Attempt ${{ github.event.inputs.attempt }} of ${{ github.event.inputs.maxAttempts }}"
+      - name: "Rerun ${{ github.event.inputs.runId }}"
         shell: pwsh
         env:
           # GITHUB_TOKEN with actions: write will NOT work
           # PAT Token must have workflow scope
           GH_CLI_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
+          echo "Sleep 15s to make sure run is completed..."
           Start-Sleep -Seconds 15
 
-          echo "Retrying run..."
+          echo "Logging in..."
           $env:GH_CLI_TOKEN | gh auth login --with-token
           if($?) { exit 1 }
-          echo "Triggering attempt $env:attempt"
+
+          echo "Retrying run..."
 
           if([String]::IsNullOrEmpty($env:jobName)) {
-            echo "gh run rerun $env:GITHUB_RUN_ID --repo $env:GITHUB_REPOSITORY"
-            gh run rerun $env:GITHUB_RUN_ID --repo $env:GITHUB_REPOSITORY
+            echo "gh run rerun $env:runId --repo $env:GITHUB_REPOSITORY"
+            gh run rerun $env:runId --repo $env:GITHUB_REPOSITORY
           } else {
-            echo "gh run rerun $env:GITHUB_RUN_ID --job $env:jobName --repo $env:GITHUB_REPOSITORY"
-            gh run rerun $env:GITHUB_RUN_ID --job $env:jobName --repo $env:GITHUB_REPOSITORY
+            echo "gh run rerun $env:runId --job $env:jobName --repo $env:GITHUB_REPOSITORY"
+            gh run rerun $env:runId --job $env:jobName --repo $env:GITHUB_REPOSITORY
           }
           if($?) { exit 1 }
