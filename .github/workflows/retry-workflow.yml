@@ -62,14 +62,14 @@ jobs:
       - name: Retry
         shell: pwsh
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_CLI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh --version
           $attempt = [int]$env:attempt
           $maxAttempts = [int]$env:maxAttempts
 
           echo "Retrying workflow..."
-          gh auth login --with-token
+          $env:GH_CLI_TOKEN | gh auth login --with-token
 
           echo "Triggering attempt $attempt"
           echo "Executing...
