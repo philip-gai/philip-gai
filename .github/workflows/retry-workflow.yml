@@ -78,9 +78,6 @@ jobs:
           echo "Retrying workflow..."
           gh auth login
 
-          echo "Listing workflows..."
-          gh workflow list --repo $env:GITHUB_REPOSITORY
-
           echo "Triggering attempt $attempt"
           echo "Executing...
             gh workflow run retry-workflow.yml
@@ -93,4 +90,5 @@ jobs:
             --raw-field attempt=$attempt `
             --raw-field maxAttempts=$maxAttempts `
             --ref $env:GITHUB_REF `
-            --repo $env:GITHUB_REPOSITORY
+            --repo $env:GITHUB_REPOSITORY `
+            2>&1
