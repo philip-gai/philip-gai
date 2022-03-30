@@ -25,6 +25,9 @@ env:
   attempt: ${{ github.event.inputs.attempt }}
   maxAttempts: ${{ github.event.inputs.maxAttempts }}
 
+permissions:
+  actions: write
+
 jobs:
   attempt_job:
     name: Attempt Job
@@ -36,8 +39,8 @@ jobs:
         id: run_script
         shell: pwsh
         run: |
-          $attempt = $env:attempt
-          $maxAttempts = $env:maxAttempts
+          $attempt = [int]$env:attempt
+          $maxAttempts = [int]$env:maxAttempts
           $nextAttempt = $attempt + 1
           echo "::set-output name=nextAttempt::$nextAttempt"
 
@@ -58,11 +61,15 @@ jobs:
     steps:
       - name: Retry
         shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          $attempt = $env:attempt
-          $maxAttempts = $env:maxAttempts
+          $attempt = [int]$env:attempt
+          $maxAttempts = [int]$env:maxAttempts
 
           echo "Retrying workflow..."
+          gh auth login
+
           echo "Triggering attempt $attempt"
           gh workflow run retry-workflow.yml `
             --raw-field attempt=$attempt `
