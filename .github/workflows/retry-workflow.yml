@@ -61,6 +61,7 @@ jobs:
     steps:
       - name: Upgrade gh cli to latest stable
         shell: pwsh
+        if: ${{ false }}
         run: |
           gh --version
           brew update
