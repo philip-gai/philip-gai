@@ -64,6 +64,7 @@ jobs:
         run: |
           gh --version
           brew install gh
+          brew upgrade gh
           gh --version
       - name: 'Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}'
         shell: pwsh
