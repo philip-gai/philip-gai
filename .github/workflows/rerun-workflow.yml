@@ -15,8 +15,9 @@ jobs:
     name: Rerun ${{ github.event.inputs.runId }}
     runs-on: ubuntu-latest
     steps:
-      # Upgrade gh cli so we can use the job parameter
+      # Upgrade gh cli to use the --job or --failed parameters
       - name: Upgrade gh cli to latest stable
+        if: ${{ false }}
         shell: pwsh
         run: |
           gh --version
@@ -36,6 +37,6 @@ jobs:
           if(!$?) { exit 1 }
 
           echo "Retrying run..."
-          echo "gh run rerun $env:runId --failed --repo $env:GITHUB_REPOSITORY"
-          gh run rerun $env:runId --failed --repo $env:GITHUB_REPOSITORY
+          echo "gh run rerun $env:runId --repo $env:GITHUB_REPOSITORY"
+          gh run rerun $env:runId --repo $env:GITHUB_REPOSITORY
           if(!$?) { exit 1 }
