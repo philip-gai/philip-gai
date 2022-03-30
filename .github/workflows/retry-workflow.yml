@@ -71,7 +71,7 @@ jobs:
       - name: "Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }} of ${{ github.event.inputs.maxAttempts }}"
         shell: bash
         env:
-          GH_CLI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_CLI_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           echo "Retrying workflow..."
           gh auth login --with-token <<< $GH_CLI_TOKEN
