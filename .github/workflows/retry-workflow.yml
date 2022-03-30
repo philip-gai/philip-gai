@@ -77,4 +77,10 @@ jobs:
           echo "gh workflow run retry-workflow.yml --raw-field attempt=$attempt --raw-field maxAttempts=$maxAttempts --ref $GITHUB_REF --repo $GITHUB_REPOSITORY"
           gh workflow run retry-workflow.yml --raw-field attempt=$attempt --raw-field maxAttempts=$maxAttempts --ref $GITHUB_REF --repo $GITHUB_REPOSITORY
           sleep 5s
-          gh run list --workflow=retry-workflow.yml --repo $GITHUB_REPOSITORY
+          if (gh run list --workflow=retry-workflow.yml --repo $GITHUB_REPOSITORY | grep -q "queued"); then
+              echo "Successfully queued retry"
+              exit 0
+          else
+              echo "Failed to queue retry"
+              exit 1
+          fi          
