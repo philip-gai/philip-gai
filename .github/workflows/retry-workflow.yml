@@ -68,7 +68,7 @@ jobs:
           $maxAttempts = [int]$env:maxAttempts
 
           echo "Retrying workflow..."
-          gh auth login
+          gh auth login --with-token <<< $env:GH_TOKEN
 
           echo "Triggering attempt $attempt"
           echo "Executing...
