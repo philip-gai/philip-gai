@@ -1,0 +1,83 @@
+name: Rerun workflow test
+
+on:
+  workflow_dispatch:
+    inputs:
+      maxAttempts:
+        required: true
+        type: number
+        default: 3
+      rerunFailedOnly:
+        required: true
+        type: boolean
+        default: 'false'
+
+env:
+  # You can hardcode this instead of passing it in from inputs
+  maxAttempts: ${{ github.event.inputs.maxAttempts }}
+  rerunFailedOnly: ${{ github.event.inputs.rerunFailedOnly }}
+
+jobs:
+  attempt_job:
+    name: "Attempt ${{ github.run_attempt }}"
+    runs-on: ubuntu-latest
+    outputs:
+      nextAttempt: ${{ steps.set_output_variables.outputs.nextAttempt }}
+      maxAttempts: ${{ steps.set_output_variables.outputs.maxAttempts }}
+    steps:
+      - name: Set output variables
+        id: set_output_variables
+        shell: pwsh
+        run: |
+          $attempt = [int]$env:GITHUB_RUN_ATTEMPT
+          $maxAttempts = [int]$env:maxAttempts
+          $nextAttempt = $attempt + 1
+          echo "::set-output name=nextAttempt::$nextAttempt"
+          echo "::set-output name=maxAttempts::$maxAttempts"
+        # Fails every attempt except the last
+      - name: Run test script
+        shell: pwsh
+        run: |
+          $attempt = [int]$env:GITHUB_RUN_ATTEMPT
+          $maxAttempts = [int]$env:maxAttempts
+
+          if($attempt -eq $maxAttempts) {
+            Write-Host "Succeeded on attempt $attempt"
+          } else {
+            Write-Error "Failed on attempt $attempt"
+            exit 1
+          }
+
+  rerun_workflow_job:
+    name: Rerun ${{ github.run_id }}
+    runs-on: ubuntu-latest
+    needs: attempt_job
+    if: failure() && ( needs.attempt_job.outputs.nextAttempt <= needs.attempt_job.outputs.maxAttempts )
+    env:
+      attempt: ${{ needs.attempt_job.outputs.nextAttempt }}
+    steps:
+      - name: "Trigger Attempt ${{ needs.attempt_job.outputs.nextAttempt }}"
+        shell: pwsh
+        env:
+          # GITHUB_TOKEN with actions: write will NOT work
+          # PAT Token must have workflow scope
+          GH_CLI_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          echo "Running gh auth login..."
+          $env:GH_CLI_TOKEN | gh auth login --with-token
+          if(!$?) { exit 1 }
+
+          echo "Triggering rerun attempt $env:nextAttempt"
+
+          echo "
+          gh workflow run rerun-workflow.yml
+            --raw-field runId=$env:GITHUB_RUN_ID
+            --raw-field rerunFailedOnly=$env:rerunFailedOnly
+            --repo $env:GITHUB_REPOSITORY
+          "
+
+          gh workflow run rerun-workflow.yml `
+            --raw-field runId=$env:GITHUB_RUN_ID `
+            --raw-field rerunFailedOnly=$env:rerunFailedOnly `
+            --repo $env:GITHUB_REPOSITORY
+          if(!$?) { exit 1 }
