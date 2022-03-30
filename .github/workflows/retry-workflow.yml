@@ -77,13 +77,7 @@ jobs:
           gh auth login
 
           echo "Triggering attempt $attempt"
-          # echo "Executing...
-          #   gh workflow run retry-workflow.yml
-          #     --raw-field attempt=$attempt
-          #     --raw-field maxAttempts=$maxAttempts
-          #     --ref $GITHUB_REF
-          #     --repo $GITHUB_REPOSITORY
-          # "
+          
           gh workflow run retry-workflow.yml \
             --raw-field attempt=$attempt \
             --raw-field maxAttempts=$maxAttempts \
