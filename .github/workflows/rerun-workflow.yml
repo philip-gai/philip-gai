@@ -35,9 +35,6 @@ jobs:
           # PAT Token must have workflow scope
           GH_CLI_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          echo "Sleep 15s to make sure run is completed..."
-          Start-Sleep -Seconds 15
-
           echo "Logging in..."
           $env:GH_CLI_TOKEN | gh auth login --with-token
           if(!$?) { exit 1 }
