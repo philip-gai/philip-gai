@@ -1,0 +1,23 @@
+name: Update Homebrew on GitHub Actions Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-homebrew:
+    runs-on: ubuntu-latest
+    steps:
+      # Update homebrew to get the latest version of the gh cli
+      - name: Update homebrew
+        shell: bash
+        run: |
+          brew --version
+          brew update || true
+          brew doctor || true
+          brew --version
+      - name: Upgrade gh cli to latest stable
+        shell: bash
+        run: |
+          gh --version
+          brew install gh
+          gh --version
