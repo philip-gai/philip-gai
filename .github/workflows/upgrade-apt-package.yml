@@ -9,8 +9,10 @@ jobs:
     steps:
       - name: Update Advanced Package Tool (APT)
         shell: bash
-        run: |
-          sudo apt update
+        run: sudo apt update
+      - name: List upgradable packages
+        shell: bash
+        run: apt list --upgradable
       - name: Upgrade gh cli
         shell: bash
         run: |
