@@ -21,5 +21,6 @@ jobs:
           brew --version
           gh --version
           brew install gh
-          brew upgrade gh
+          brew unlink gh
+          brew link gh
           gh --version
