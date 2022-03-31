@@ -8,5 +8,10 @@ jobs:
     name: Use shared composite action example
     runs-on: ubuntu-latest
     steps:
-      - name: Upgrade gh cli to the latest version
-        uses: philip-gai/upgrade-gh-cli@v1
+      - name: Checkout composite actions repository
+        uses: actions/checkout@v2
+        with:
+          repository: philip-gai/composite-actions
+          path: composite-actions
+      - name: Upgrade gh cli
+        uses: ./composite-actions/.github/workflows/composite/upgrade-gh-cli
