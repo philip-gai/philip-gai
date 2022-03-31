@@ -19,5 +19,5 @@ jobs:
         shell: bash
         run: |
           gh --version
-          brew install gh
+          brew upgrade gh
           gh --version
