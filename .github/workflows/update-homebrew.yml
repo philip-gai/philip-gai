@@ -1,4 +1,4 @@
-name: Update Homebrew on GitHub Actions Runner
+name: Update Homebrew Example
 
 on:
   workflow_dispatch:
@@ -15,10 +15,3 @@ jobs:
           brew update || true
           brew doctor || true
           brew --version
-      - name: Install gh cli latest
-        shell: bash
-        run: |
-          gh --version
-          sudo apt update
-          sudo apt install gh
-          gh --version

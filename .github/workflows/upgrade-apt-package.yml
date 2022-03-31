@@ -1,0 +1,19 @@
+name: Upgrade APT Package Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-apt-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Advanced Package Tool (APT)
+        shell: bash
+        run: |
+          sudo apt update
+      - name: Upgrade gh cli
+        shell: bash
+        run: |
+          gh --version
+          sudo apt install gh
+          gh --version
