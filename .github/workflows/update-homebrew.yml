@@ -18,6 +18,8 @@ jobs:
       - name: Upgrade gh cli to latest stable
         shell: bash
         run: |
+          brew --version
           gh --version
+          brew install gh
           brew upgrade gh
           gh --version
