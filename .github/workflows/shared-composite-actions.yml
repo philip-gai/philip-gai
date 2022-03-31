@@ -1,10 +1,11 @@
-name: Use shared composite action example
+name: Shared composite action example
 
 on:
   workflow_dispatch:
 
 jobs:
   use-shared-composite-action:
+    name: Use shared composite action example
     runs-on: ubuntu-latest
     steps:
       - name: Checkout composite actions repository
