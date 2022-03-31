@@ -12,6 +12,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: philip-gai/composite-actions
-          path: .github/workflows/composite/upgrade-gh-cli
+          path: composite-actions
       - name: Upgrade gh cli
-        uses: ./.github/workflows/composite/upgrade-gh-cli
+        uses: ./composite-actions/.github/workflows/composite/upgrade-gh-cli
