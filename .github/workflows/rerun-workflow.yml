@@ -22,15 +22,15 @@ jobs:
     steps:
       # Upgrade gh cli to use the --failed parameter (added in version 2.6.0 (2022-03-15))
       # This takes 1m 30s
-      - name: Upgrade gh cli to latest stable
+      - name: Checkout composite actions repository
         if: github.event.inputs.rerunFailedOnly == 'true'
-        shell: pwsh
-        run: |
-          gh --version
-          brew update
-          brew doctor
-          brew install gh
-          gh --version
+        uses: actions/checkout@v2
+        with:
+          repository: philip-gai/composite-actions
+          path: composite-actions
+      - name: Upgrade gh cli
+        if: github.event.inputs.rerunFailedOnly == 'true'
+        uses: ./composite-actions/.github/workflows/composite/upgrade-gh-cli
       - name: "Rerun ${{ github.event.inputs.runId }}"
         shell: pwsh
         env:
