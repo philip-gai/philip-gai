@@ -27,6 +27,6 @@ jobs:
           sudo apt install gh
           newVersion=$(gh --version | grep "gh version")
           echo $newVersion
-          
+
           # Fails if the newVersion == oldVersion
-          echo $newVersion | grep -v "$oldVersion"
+          echo $newVersion | grep -v -q "$oldVersion"
