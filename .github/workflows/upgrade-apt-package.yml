@@ -17,5 +17,6 @@ jobs:
         shell: bash
         run: |
           gh --version
+          sudo apt purge gh
           sudo apt install gh
           gh --version
