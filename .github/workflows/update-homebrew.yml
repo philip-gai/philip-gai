@@ -21,5 +21,7 @@ jobs:
       - name: Install gh cli latest
         shell: bash
         run: |
-          brew install gh
+          gh --version
+          sudo apt update
+          sudo apt install gh
           gh --version
