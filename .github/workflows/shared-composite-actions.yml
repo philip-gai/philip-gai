@@ -1,0 +1,16 @@
+name: Use shared composite action example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  use-shared-composite-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout composite actions repository
+        uses: actions/checkout@v2
+        with:
+          repository: philip-gai/composite-actions
+          path: .github/workflows/composite/upgrade-gh-cli
+      - name: Upgrade gh cli
+        uses: ./.github/workflows/composite/upgrade-gh-cli
