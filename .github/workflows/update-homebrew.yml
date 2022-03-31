@@ -15,11 +15,11 @@ jobs:
           brew update || true
           brew doctor || true
           brew --version
-      - name: Upgrade gh cli to latest stable
+      - name: Uninstall pre-installed gh cli
+        shell: bash
+        run: sudo apt remove gh works
+      - name: Install gh cli latest
         shell: bash
         run: |
-          gh --version
           brew install gh
-          brew unlink gh
-          brew link gh
           gh --version
