@@ -4,19 +4,17 @@
 [![Twitter URL](https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fphilipgai_dev%2Fwith_replies)](https://twitter.com/philipgai_dev/with_replies)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-in-blue)](https://www.linkedin.com/in/philipgai/)
 
-![Philip's GitHub stats](https://github-readme-stats.vercel.app/api?username=philip-gai&count_private=true&show_icons=true)
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=philip-gai&layout=compact" height="195">
-
 I like to work on things that make developers happy 😊
 
-### What I'm working on
-- [Announcement Drafter](https://github.com/philip-gai/announcement-drafter) - A 🤖 for drafting new GitHub announcements using pull requests
-- [Azure DevOps ChatOps](https://github.com/philip-gai/github-ado-chatops) - Create a branch in an Azure Repo directly from a GitHub Issue
-- ... and a lot of other things. View my [public project board](https://github.com/users/philip-gai/projects/4) for live updates!
- 
+### Stuff I'm working on
+- [slashkudos](https://github.com/slashkudos) - The open source kudos platform
+- [philip-gai/announcement-drafter](https://github.com/philip-gai/announcement-drafter) - A 🤖 for drafting and publishing new GitHub announcements using pull requests
 
 ### Let's connect!
 - Explore and ⭐ my projects
 - Follow me here on GitHub
 - [Sponsor me](https://github.com/sponsors/philip-gai) :heart:
 
+![Philip's GitHub stats](https://github-readme-stats.vercel.app/api?username=philip-gai&count_private=true&show_icons=true)
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=philip-gai&layout=compact" height="195">
+ 
