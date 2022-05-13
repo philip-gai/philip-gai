@@ -7,7 +7,7 @@ on:
 
 # This is what will cancel the workflow
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Print ref
-        run: echo '${{ github.ref }}'
-      - name: Wait
+      - name: Print concurrency group
+        run: echo '${{ github.workflow }}-${{ github.ref }}'
+      - name: Sleep 15s
         run: sleep 15s
