@@ -7,7 +7,7 @@ on:
 
 # This is what will cancel the workflow
 concurrency:
-  group: "{{ github.ref }}"
+  group: ${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -16,4 +16,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: View the ref
-        run: echo "{{ github.ref }}"
+        run: echo '${{ github.ref }}'
