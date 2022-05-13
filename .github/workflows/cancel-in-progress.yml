@@ -1,4 +1,4 @@
-name: CI
+name: CI with in-progress cancellations
 
 on:
   pull_request:
