@@ -15,5 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: View the ref
+      - name: Print ref
         run: echo '${{ github.ref }}'
+      - name: Wait
+        run: sleep 15s
