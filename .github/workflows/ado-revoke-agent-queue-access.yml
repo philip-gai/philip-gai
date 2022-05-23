@@ -20,7 +20,7 @@ jobs:
           ADO_PROJECT: ${{ secrets.ADO_PROJECT }}
           ADO_PAT: ${{ secrets.ADO_PAT }}
         run: |
-          $params = ${
+          $params = @{
             Queues = 'Actions Production Deployment Agents','Actions Preflight Deployment Agents'
             WhatIf = "false" -ne "${{ github.event.inputs.what_if }}"
           }
