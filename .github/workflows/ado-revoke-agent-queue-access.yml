@@ -16,8 +16,8 @@ jobs:
       - name: Run Revoke-AgentQueueAccess.ps1
         shell: pwsh
         env:
-          ADO_ORG: ${{ secrets.ADO_ORG }}
-          ADO_PROJECT: ${{ secrets.ADO_PROJECT }}
+          ADO_ORG: <Org name>
+          ADO_PROJECT: <Project name>
           ADO_PAT: ${{ secrets.ADO_PAT }}
         run: |
           $params = @{
