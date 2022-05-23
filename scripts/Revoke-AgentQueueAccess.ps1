@@ -24,7 +24,10 @@ param(
 
     [Parameter(Mandatory = $false, HelpMessage = "The Azure DevOps API version.")]
     [ValidateNotNullOrEmpty()]
-    [string]$Version = '7.1-preview.1'
+    [string]$Version = '7.1-preview.1',
+
+    [Parameter(Mandatory = $false, HelpMessage = "Don't actually make any changes.")]
+    [switch]$WhatIf
 )
 
 $ErrorActionPreference + 'Stop'
@@ -83,12 +86,18 @@ foreach ($queue in $queuesToProtect.value) {
     $revokeRequestBody = @{
         "pipelines" = $pipelineToRevoke
     } | ConvertTo-Json -Compress
-    Invoke-RestMethod -Headers $headers `
-        -Method Patch `
-        -Uri "https://dev.azure.com/$Organization/$Project/_apis/pipelines/pipelinepermissions/$resourceType/$resourceId" `
-        -Body $revokeRequestBody `
-        -ContentType "application/json"
-    Write-Host "Success! No pipelines are authorized for this agent queue from this project." -ForegroundColor Green
+
+    if (!$WhatIf) {
+        Invoke-RestMethod -Headers $headers `
+            -Method Patch `
+            -Uri "https://dev.azure.com/$Organization/$Project/_apis/pipelines/pipelinepermissions/$resourceType/$resourceId" `
+            -Body $revokeRequestBody `
+            -ContentType "application/json"
+        Write-Host "Success! All pipeline access to this agent queue  has been revoked." -ForegroundColor Green
+    }
+    else {
+        Write-Warning "WhatIf - Not making any changes."
+    }
 }
 
 Write-Host "Done!" -ForegroundColor Green
