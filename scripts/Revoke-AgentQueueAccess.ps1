@@ -12,19 +12,19 @@ param(
 
     [Parameter(Mandatory = $false, HelpMessage = "The Azure DevOps org.")]
     [ValidateNotNullOrEmpty()]
-    [string[]]$Organization = $env:ADO_ORG,
+    [string]$Organization = $env:ADO_ORG,
 
     [Parameter(Mandatory = $false, HelpMessage = "The Azure DevOps project.")]
     [ValidateNotNullOrEmpty()]
-    [string[]]$Project = $env:ADO_PROJECT,
+    [string]$Project = $env:ADO_PROJECT,
 
     [Parameter(Mandatory = $false, HelpMessage = "The Azure DevOps personal access token.")]
     [ValidateNotNullOrEmpty()]
-    [string[]]$Token = $env:ADO_PAT,
+    [string]$Token = $env:ADO_PAT,
 
     [Parameter(Mandatory = $false, HelpMessage = "The Azure DevOps API version.")]
     [ValidateNotNullOrEmpty()]
-    [string[]]$Version = '7.1-preview.1'
+    [string]$Version = '7.1-preview.1'
 )
 
 $ErrorActionPreference + 'Stop'
@@ -39,15 +39,21 @@ $headers = @{
 
 $queueNames = $Queues -join (',')
 
+Write-Host "Organization: $Organization"
+Write-Host "Project: $Project"
+Write-Host "Queues: $queueNames"
+
 # Get the agent queues to revoke permissions for
 Write-Host "Getting agent queues to revoke on the project..."
 $queuesToProtect = Invoke-RestMethod `
     -Headers $headers `
     -Method Get `
     -Uri "https://dev.azure.com/$Organization/$Project/_apis/distributedtask/queues?queueNames=$queueNames"
-Write-Host "Found $($queuesToProtect.count) agent queues to revoke pipeline access to from this project."
+$queueCount = $queuesToProtect.value.count
+Write-Host "Found $queueCount agent queues to revoke pipeline access to from this project."
 
-if (!$queuesToProtect.count -gt 0) {
+if (!$queueCount -or !$queueCount -gt 0) {
+    Write-Warning "No agent queues found to revoke pipeline access from. Exiting."
     return;
 }
 
@@ -63,8 +69,14 @@ foreach ($queue in $queuesToProtect.value) {
         -Method Get `
         -Uri "https://dev.azure.com/$Organization/$Project/_apis/pipelines/pipelinepermissions/$resourceType/$resourceId"
     $authorizedPipelines = $response.pipelines
-    Write-Host "Found $($authorizedPipelines.count) pipelines that are authorized for this agent queue."
+    $pipelineCount = $authorizedPipelines.count
+    Write-Host "Found $pipelineCount pipelines that are authorized for this agent queue."
     
+    if (!$pipelineCount -or !$pipelineCount -gt 0) {
+        Write-Warning "No pipelines found to revoke pipeline access from. Skipping."
+        continue;
+    }
+
     # Revoke pipeline permissions to this agent queue
     Write-Host "Revoking pipeline permissions to this agent queue..."
     $pipelineToRevoke = $authorizedPipelines | ForEach-Object { $_.authorized = $false; return $_ } | Select-Object id, authorized
@@ -76,7 +88,7 @@ foreach ($queue in $queuesToProtect.value) {
         -Uri "https://dev.azure.com/$Organization/$Project/_apis/pipelines/pipelinepermissions/$resourceType/$resourceId" `
         -Body $revokeRequestBody `
         -ContentType "application/json"
-    Write-Host "Success! No pipelines are authorized for this agent queue from this project."
+    Write-Host "Success! No pipelines are authorized for this agent queue from this project." -ForegroundColor Green
 }
 
-Write-Host "Done!"
+Write-Host "Done!" -ForegroundColor Green
