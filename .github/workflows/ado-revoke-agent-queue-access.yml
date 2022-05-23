@@ -1,0 +1,27 @@
+name: Revoke Azure DevOps Agent Queue Access from Project Pipelines
+
+on:
+  workflow_dispatch:
+    inputs:
+      what_if:
+        required: false
+        default: true
+
+jobs:
+  revoke_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run Revoke-AgentQueueAccess.ps1
+        shell: pwsh
+        env:
+          ADO_ORG: ${{ secrets.ADO_ORG }}
+          ADO_PROJECT: ${{ secrets.ADO_PROJECT }}
+          ADO_PAT: ${{ secrets.ADO_PAT }}
+        run: |
+          $params = ${
+            Queues = 'Actions Production Deployment Agents','Actions Preflight Deployment Agents'
+            WhatIf = "false" -ne "${{ github.event.inputs.what_if }}"
+          }
+          ./scripts/Revoke-AgentQueueAccess.ps1 @params
