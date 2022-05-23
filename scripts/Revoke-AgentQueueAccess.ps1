@@ -37,12 +37,14 @@ $headers = @{
     Accept        = "application/json; api-version=$Version"
 }
 
+$queueNames = $Queues -join (',')
+
 # Get the agent queues to revoke permissions for
 Write-Host "Getting agent queues to revoke on the project..."
 $queuesToProtect = Invoke-RestMethod `
     -Headers $headers `
     -Method Get `
-    -Uri "https://dev.azure.com/$org/$project/_apis/distributedtask/queues?queueNames=$queues"
+    -Uri "https://dev.azure.com/$Organization/$Project/_apis/distributedtask/queues?queueNames=$queueNames"
 Write-Host "Found $($queuesToProtect.count) agent queues to revoke pipeline access to from this project."
 
 if (!$queuesToProtect.count -gt 0) {
@@ -59,7 +61,7 @@ foreach ($queue in $queuesToProtect.value) {
     $response = Invoke-RestMethod `
         -Headers $headers `
         -Method Get `
-        -Uri "https://dev.azure.com/$org/$project/_apis/pipelines/pipelinepermissions/$resourceType/$resourceId"
+        -Uri "https://dev.azure.com/$Organization/$Project/_apis/pipelines/pipelinepermissions/$resourceType/$resourceId"
     $authorizedPipelines = $response.pipelines
     Write-Host "Found $($authorizedPipelines.count) pipelines that are authorized for this agent queue."
     
@@ -71,7 +73,7 @@ foreach ($queue in $queuesToProtect.value) {
     } | ConvertTo-Json -Compress
     Invoke-RestMethod -Headers $headers `
         -Method Patch `
-        -Uri "https://dev.azure.com/$org/$project/_apis/pipelines/pipelinepermissions/$resourceType/$resourceId" `
+        -Uri "https://dev.azure.com/$Organization/$Project/_apis/pipelines/pipelinepermissions/$resourceType/$resourceId" `
         -Body $revokeRequestBody `
         -ContentType "application/json"
     Write-Host "Success! No pipelines are authorized for this agent queue from this project."
