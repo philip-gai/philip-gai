@@ -1,0 +1,19 @@
+# https://github.com/orgs/community/discussions/25400
+name: Diff
+on: pull_request
+jobs:
+  diff:
+    name: Diff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diff
+        uses: actions/github-script@v6.1.1
+        with:
+          script: |
+            const diff_url = context.payload.pull_request.diff_url
+            const result = await github.request(diff_url, {
+              headers: {
+                accept: "application/vnd.github.v3.diff"
+              }
+            })
+            console.log(result)
