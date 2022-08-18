@@ -17,4 +17,4 @@ jobs:
                 accept: "application/vnd.github.v3.diff"
               }
             })
-            console.log(result)
+            console.log(result.data)
