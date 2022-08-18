@@ -1,3 +1,4 @@
+# Displays the diff on a PR using the Octokit provided by actions/github-script
 # https://github.com/orgs/community/discussions/25400
 name: Diff
 on: pull_request
