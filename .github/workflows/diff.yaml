@@ -1,3 +1,4 @@
+# Displays the diff on a PR using the Octokit provided by actions/github-script
 # https://github.com/orgs/community/discussions/25400
 name: Diff
 on: pull_request
@@ -16,4 +17,4 @@ jobs:
                 accept: "application/vnd.github.v3.diff"
               }
             })
-            console.log(result)
+            console.log(result.data)
