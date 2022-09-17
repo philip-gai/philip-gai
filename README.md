@@ -7,13 +7,16 @@
 I like to work on things that make developers happy 😊
 
 ### Stuff I'm working on
+
+- [philip-gai/announcement-drafter](https://github.com/philip-gai/announcement-drafter) - A 🤖 for drafting and publishing GitHub announcements using pull requests
 - [slashkudos](https://github.com/slashkudos) - The open source kudos platform
-- [philip-gai/announcement-drafter](https://github.com/philip-gai/announcement-drafter) - A 🤖 for drafting and publishing new GitHub announcements using pull requests
 
 ### Let's connect!
+
 - Explore and ⭐ my projects
-- Follow me here on GitHub
-- [Sponsor me](https://github.com/sponsors/philip-gai) :heart:
+- Follow me
+
+### Stats
 
 ![Philip's GitHub stats](https://github-readme-stats.vercel.app/api?username=philip-gai&count_private=true&show_icons=true)
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=philip-gai&layout=compact" height="195">
