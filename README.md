@@ -6,11 +6,6 @@
 
 I like to work on things that make developers happy 😊
 
-### Stuff I'm working on
-
-- [philip-gai/announcement-drafter](https://github.com/philip-gai/announcement-drafter) - A 🤖 for drafting and publishing GitHub announcements using pull requests
-- [slashkudos](https://github.com/slashkudos) - The open source kudos platform
-
 ### Let's connect!
 
 - Explore and ⭐ my projects
