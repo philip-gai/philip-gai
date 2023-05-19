@@ -23,14 +23,14 @@ jobs:
           client-id: ${{ env.AZURE_CLIENT_ID }}
           tenant-id: ${{ env.AZURE_TENANT_ID }}
           allow-no-subscriptions: true
-      - uses: philip-gai/setup-kusto@main
+      - uses: philip-gai/setup-kusto@v1
       - name: Run inline query
-        uses: philip-gai/kusto-script@main
+        uses: philip-gai/kusto-script@v1
         with:
           kusto-uri: ${{ env.KUSTO_URI }}
           kusto-query: ".show databases"
       - name: Run Kusto script
-        uses: philip-gai/kusto-script@main
+        uses: philip-gai/kusto-script@v1
         with:
           kusto-uri: ${{ env.KUSTO_URI }}
           kusto-script: "kusto-scripts/show-commands.kql"
