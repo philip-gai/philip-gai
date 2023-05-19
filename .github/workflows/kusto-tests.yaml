@@ -1,0 +1,36 @@
+name: Kusto tests
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AZURE_CLIENT_ID: b63b64a4-12a9-4556-88e4-8863180b982e
+  AZURE_TENANT_ID: 87e276c0-7d18-4d86-948a-ba5eea990211
+  KUSTO_URI: https://philipgai.southcentralus.kusto.windows.net/Test
+
+jobs:
+  test-kusto-action:
+    name: "Run Kusto script"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.2
+      - uses: Azure/login@v1
+        with:
+          client-id: b63b64a4-12a9-4556-88e4-8863180b982e
+          tenant-id: 87e276c0-7d18-4d86-948a-ba5eea990211
+          allow-no-subscriptions: true
+      - uses: philip-gai/setup-kusto@main
+      - name: Run inline query
+        uses: philip-gai/kusto-script@main
+        with:
+          kusto-uri: ${{ env.KUSTO_URI }}
+          kusto-query: ".show databases"
+      - name: Run Kusto script
+        uses: philip-gai/kusto-script@main
+        with:
+          kusto-uri: ${{ env.KUSTO_URI }}
+          kusto-script: "kusto-scripts/show-commands.kql"
